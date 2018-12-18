@@ -54,7 +54,14 @@ def setBorders(allres):
     #f1.close()
     #f2.close()
 
-
+def dumpSvgData(allres, level, number, filename):
+    f = open(filename, 'w')
+    res = ''
+    counter = 0
+    for v in allres.values():
+        res = res + v.dumpSvg(level)
+    f.write(res)
+    f.close()
 
         
 if __name__ == '__main__':
@@ -62,12 +69,19 @@ if __name__ == '__main__':
     setBorders(allres)
 
     counter = 0
+    res = ''
     for path in allres.values():
-        path.reduce(4, 'cleaned', 'reduced4')
-        print(path.borderOverview('reduced4'))
+        path.reduce(1, 'cleaned', 'reduced4')
+        #print(path.borderOverview('reduced4'))
         counter += 1
+        res = res + path.dumpSvg('reduced4')
         if counter == 100:
             break
+
+    f = open('svgdata.txt', 'w')
+    f.write(res)
+    f.close()
+
         
 
     #path = allres['MX-BCN']
