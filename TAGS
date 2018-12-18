@@ -1,0 +1,28 @@
+
+parsesvg.py,481
+def resolvePath(13,293
+def readSvgFile(50,1219
+class svgPathPoint:svgPathPoint79,1803
+    def __init__(80,1824
+    def getTrueLocation(93,2250
+    def __eq__(96,2314
+    def __str__(99,2404
+class SvgPath:SvgPath102,2515
+    def __init__(103,2531
+    def addPoint(124,3186
+    def __str__(160,4478
+    def overview(171,4845
+    def borderOverview(180,5161
+    def borderRaw(203,5997
+    def basicClean(211,6243
+    def setLevel(225,6680
+    def __iter__(228,6753
+
+svgwork.py,66
+def dumpData(4,21
+def compareIter(18,384
+def setBorders(33,697
+
+parsetest.py,0
+
+listostring.py,0

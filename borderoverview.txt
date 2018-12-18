@@ -1,0 +1,236 @@
+
+Id: MX-AGU, Name = Aguascalientes
+MX-AGU,MX-JAL,MX-ZAC length: 0 point (387.90, 364.81)
+MX-AGU,MX-ZAC length: 14 point (410.26, 357.31)
+MX-AGU,MX-JAL,MX-ZAC length: 0 point (410.52, 357.90)
+MX-AGU,MX-JAL length: 10 point (390.24, 367.07)
+MX-AGU,MX-JAL,MX-ZAC length: 0
+Id: MX-BCN, Name = Baja California
+MX-BCN,MX-BCS length: 1 point (104.79, 195.25)
+MX-BCN, length: 11 point (106.20, 195.13)
+MX-BCN,MX-BCS length: 0 point (78.85, 183.14)
+MX-BCN, length: 316
+Id: MX-BCS, Name = Baja California Sur
+MX-BCS, length: 170 point (105.55, 195.13)
+MX-BCS,MX-BCN length: 1 point (106.61, 195.54)
+MX-BCS, length: 359 point (105.55, 195.13)
+MX-BCS,MX-BCN length: 0
+Id: MX-CAM, Name = Campeche
+MX-CAM, length: 15 point (700.38, 390.75)
+MX-CAM,MX-YUC length: 0 point (700.22, 398.05)
+MX-CAM, length: 140 point (700.38, 390.75)
+MX-CAM,MX-YUC length: 0
+Id: MX-CHP, Name = Chiapas
+MX-CHP,MX-OAX length: 0 point (607.35, 514.64)
+MX-CHP, length: 3 point (607.17, 515.28)
+MX-CHP,MX-OAX length: 0 point (606.80, 511.27)
+MX-CHP, length: 0 point (606.79, 510.49)
+MX-CHP,MX-OAX length: 0 point (606.67, 508.37)
+MX-CHP, length: 151
+Id: MX-CHH, Name = Chihuahua
+MX-CHH,MX-COA length: 44 point (362.87, 228.96)
+MX-CHH,MX-COA,MX-DUR length: 0 point (361.77, 229.20)
+MX-CHH,MX-DUR length: 89 point (278.36, 255.29)
+MX-CHH, length: 95 point (240.13, 98.26)
+MX-CHH,MX-SON length: 0 point (254.23, 98.22)
+MX-CHH, length: 92 point (374.96, 164.76)
+MX-CHH,MX-COA length: 0
+Id: MX-COA, Name = Coahuila
+MX-COA,MX-NEL length: 76 point (438.87, 289.47)
+MX-COA,MX-NEL,MX-ZAC length: 0 point (436.75, 289.00)
+MX-COA,MX-ZAC length: 21 point (390.91, 276.52)
+MX-COA,MX-DUR,MX-ZAC length: 0 point (387.86, 278.55)
+MX-COA,MX-DUR length: 35 point (362.87, 228.96)
+MX-COA,MX-CHH,MX-DUR length: 0 point (361.79, 227.13)
+MX-COA,MX-CHH length: 44 point (375.65, 164.83)
+MX-COA, length: 139 point (463.62, 200.41)
+MX-COA,MX-NEL length: 0
+Id: MX-COL, Name = Colima
+MX-COL,MX-JAL,MX-MIC length: 0 point (369.81, 441.73)
+MX-COL,MX-MIC length: 5 point (360.39, 442.01)
+MX-COL, length: 14 point (342.56, 433.10)
+MX-COL,MX-JAL length: 25 point (372.28, 439.49)
+MX-COL,MX-JAL,MX-MIC length: 0
+Id: MX-DIF, Name = Distrito Federal
+MX-DIF,MX-MOR length: 7 point (476.67, 432.35)
+MX-DIF, length: 14 point (488.10, 436.52)
+MX-DIF,MX-MOR length: 0
+Id: MX-DUR, Name = Durango
+MX-DUR,MX-CHH length: 89 point (362.87, 228.96)
+MX-DUR,MX-CHH,MX-COA length: 0 point (363.59, 229.59)
+MX-DUR,MX-COA length: 35 point (390.91, 276.52)
+MX-DUR,MX-COA,MX-ZAC length: 0 point (391.26, 277.04)
+MX-DUR,MX-ZAC length: 47 point (347.55, 349.16)
+MX-DUR, length: 24 point (324.60, 330.53)
+MX-DUR,MX-NAY length: 0 point (322.48, 328.35)
+MX-DUR, length: 58 point (280.50, 258.08)
+MX-DUR,MX-CHH length: 0
+Id: MX-GUA, Name = Guanajuato
+MX-GUA,MX-QUE,MX-SLP length: 0 point (465.66, 372.19)
+MX-GUA,MX-QUE length: 27 point (450.65, 404.15)
+MX-GUA,MX-MIC,MX-QUE length: 0 point (450.22, 405.24)
+MX-GUA,MX-MIC length: 50 point (407.98, 402.23)
+MX-GUA,MX-JAL,MX-MIC length: 0 point (408.36, 399.46)
+MX-GUA,MX-JAL length: 22 point (420.97, 362.85)
+MX-GUA,MX-JAL,MX-ZAC length: 0 point (421.94, 363.48)
+MX-GUA,MX-ZAC length: 0 point (422.75, 362.54)
+MX-GUA,MX-SLP,MX-ZAC length: 0 point (423.91, 363.21)
+MX-GUA,MX-SLP length: 21 point (465.16, 371.70)
+MX-GUA,MX-QUE,MX-SLP length: 0
+Id: MX-GRO, Name = Guerrero
+MX-GRO,MX-MIC length: 0 point (449.49, 439.76)
+MX-GRO, length: 184 point (449.19, 436.82)
+MX-GRO,MX-MIC length: 0 point (453.83, 455.57)
+MX-GRO,MX-MEX length: 3
+Id: MX-HID, Name = Hidalgo
+MX-HID,MX-SLP length: 0 point (497.18, 374.64)
+MX-HID, length: 30 point (511.31, 395.48)
+MX-HID,MX-PUE length: 9 point (505.62, 419.96)
+MX-HID,MX-PUE,MX-TLA length: 0 point (503.24, 419.46)
+MX-HID,MX-TLA length: 5 point (492.67, 422.49)
+MX-HID, length: 32 point (463.14, 403.87)
+MX-HID,MX-MEX,MX-QUE length: 0 point (464.15, 397.33)
+MX-HID,MX-QUE length: 14 point (483.66, 377.61)
+MX-HID,MX-QUE,MX-SLP length: 0 point (485.92, 376.86)
+MX-HID,MX-SLP length: 8
+Id: MX-JAL, Name = Jalisco
+MX-JAL,MX-AGU,MX-ZAC length: 0 point (392.29, 365.95)
+MX-JAL,MX-AGU length: 10 point (410.26, 357.31)
+MX-JAL,MX-AGU,MX-ZAC length: 0 point (413.80, 358.22)
+MX-JAL,MX-ZAC length: 3 point (420.97, 362.85)
+MX-JAL,MX-GUA,MX-ZAC length: 0 point (419.75, 364.14)
+MX-JAL,MX-GUA length: 22 point (407.98, 402.23)
+MX-JAL,MX-GUA,MX-MIC length: 0 point (405.18, 402.24)
+MX-JAL,MX-MIC length: 46 point (372.28, 439.49)
+MX-JAL,MX-COL,MX-MIC length: 0 point (372.23, 437.53)
+MX-JAL,MX-COL length: 25 point (342.00, 432.57)
+MX-JAL, length: 68 point (364.16, 377.78)
+MX-JAL,MX-NAY length: 0 point (364.56, 373.56)
+MX-JAL, length: 12 point (351.84, 352.02)
+MX-JAL,MX-ZAC length: 92 point (390.24, 367.07)
+MX-JAL,MX-AGU,MX-ZAC length: 0
+Id: MX-MEX, Name = México
+MX-MEX,MX-GRO length: 3 point (463.14, 403.87)
+MX-MEX,MX-HID,MX-QUE length: 0 point (464.31, 405.27)
+MX-MEX, length: 130 point (463.14, 403.87)
+MX-MEX,MX-HID,MX-QUE length: 0
+Id: MX-MIC, Name = Michoacán
+MX-MIC,MX-GUA,MX-JAL length: 0 point (408.84, 402.28)
+MX-MIC,MX-GUA length: 50 point (450.65, 404.15)
+MX-MIC,MX-GUA,MX-QUE length: 0 point (452.20, 405.14)
+MX-MIC,MX-QUE length: 3 point (456.45, 413.28)
+MX-MIC, length: 18 point (449.19, 436.82)
+MX-MIC,MX-GRO length: 0 point (446.94, 438.20)
+MX-MIC, length: 79 point (365.90, 446.37)
+MX-MIC,MX-COL length: 5 point (372.28, 439.49)
+MX-MIC,MX-COL,MX-JAL length: 0 point (373.94, 439.08)
+MX-MIC,MX-JAL length: 46 point (407.98, 402.23)
+MX-MIC,MX-GUA,MX-JAL length: 0
+Id: MX-MOR, Name = Morelos
+MX-MOR,MX-DIF length: 7 point (489.08, 437.35)
+MX-MOR, length: 3 point (496.07, 437.64)
+MX-MOR,MX-PUE length: 9 point (483.12, 453.21)
+MX-MOR, length: 10 point (479.30, 436.73)
+MX-MOR,MX-DIF length: 0
+Id: MX-NAY, Name = Nayarit
+MX-NAY, length: 43 point (324.60, 330.53)
+MX-NAY,MX-DUR length: 0 point (326.80, 333.17)
+MX-NAY, length: 41 point (364.16, 377.78)
+MX-NAY,MX-JAL length: 0 point (363.76, 378.61)
+MX-NAY, length: 88 point (324.60, 330.53)
+MX-NAY,MX-DUR length: 0
+Id: MX-NEL, Name = Nuevo León
+MX-NEL, length: 117 point (456.77, 325.04)
+MX-NEL,MX-SLP length: 22 point (438.32, 289.89)
+MX-NEL,MX-SLP,MX-ZAC length: 0 point (438.87, 289.47)
+MX-NEL,MX-COA,MX-ZAC length: 0 point (439.87, 286.21)
+MX-NEL,MX-COA length: 76 point (464.37, 200.24)
+MX-NEL, length: 3
+Id: MX-OAX, Name = Oaxaca
+MX-OAX,MX-PUE length: 0 point (544.75, 451.21)
+MX-OAX, length: 55 point (606.79, 510.49)
+MX-OAX,MX-CHP length: 0 point (606.83, 510.93)
+MX-OAX, length: 14 point (607.17, 515.28)
+MX-OAX,MX-CHP length: 0 point (602.46, 513.21)
+MX-OAX, length: 95 point (503.48, 466.99)
+MX-OAX,MX-PUE length: 37
+Id: MX-PUE, Name = Puebla
+MX-PUE,MX-HID length: 0 point (512.01, 392.92)
+MX-PUE, length: 64 point (543.58, 453.39)
+MX-PUE,MX-OAX length: 37 point (501.87, 466.19)
+MX-PUE, length: 13 point (485.42, 455.55)
+MX-PUE,MX-MOR length: 9 point (495.95, 433.24)
+MX-PUE, length: 3 point (495.12, 426.08)
+MX-PUE,MX-TLA length: 31 point (505.62, 419.96)
+MX-PUE,MX-HID,MX-TLA length: 0 point (504.92, 415.23)
+MX-PUE,MX-HID length: 9
+Id: MX-QUE, Name = Querétaro
+MX-QUE,MX-HID,MX-SLP length: 0 point (482.38, 380.74)
+MX-QUE,MX-HID length: 14 point (463.14, 403.87)
+MX-QUE,MX-HID,MX-MEX length: 0 point (462.04, 404.66)
+MX-QUE, length: 8 point (456.53, 410.85)
+MX-QUE,MX-MIC length: 3 point (450.65, 404.15)
+MX-QUE,MX-GUA,MX-MIC length: 0 point (449.93, 402.48)
+MX-QUE,MX-GUA length: 27 point (465.16, 371.70)
+MX-QUE,MX-GUA,MX-SLP length: 0 point (464.57, 371.13)
+MX-QUE,MX-SLP length: 17 point (483.66, 377.61)
+MX-QUE,MX-HID,MX-SLP length: 0
+Id: MX-ROO, Name = Quintana Roo
+MX-ROO, length: 244
+Id: MX-SLP, Name = San Luis Potosí
+MX-SLP,MX-NEL,MX-ZAC length: 0 point (440.04, 292.21)
+MX-SLP,MX-NEL length: 22 point (457.67, 326.10)
+MX-SLP, length: 26 point (491.95, 348.66)
+MX-SLP,MX-VER length: 0 point (492.24, 349.59)
+MX-SLP, length: 29 point (496.34, 374.47)
+MX-SLP,MX-HID length: 8 point (483.66, 377.61)
+MX-SLP,MX-HID,MX-QUE length: 0 point (482.78, 377.35)
+MX-SLP,MX-QUE length: 17 point (465.16, 371.70)
+MX-SLP,MX-GUA,MX-QUE length: 0 point (462.52, 373.03)
+MX-SLP,MX-GUA length: 21 point (422.75, 362.54)
+MX-SLP,MX-GUA,MX-ZAC length: 0 point (424.68, 358.57)
+MX-SLP,MX-ZAC length: 52 point (438.32, 289.89)
+MX-SLP,MX-NEL,MX-ZAC length: 0
+Id: MX-SIN, Name = Sinaloa
+MX-SIN, length: 336
+Id: MX-SON, Name = Sonora
+MX-SON, length: 61 point (240.13, 98.26)
+MX-SON,MX-CHH length: 0 point (241.18, 99.30)
+MX-SON, length: 318 point (240.13, 98.26)
+MX-SON,MX-CHH length: 0
+Id: MX-TAB, Name = Tabasco
+MX-TAB, length: 146
+Id: MX-TAM, Name = Tamaulipas
+MX-TAM, length: 388
+Id: MX-TLA, Name = Tlaxcala
+MX-TLA,MX-HID,MX-PUE length: 0 point (507.68, 420.34)
+MX-TLA,MX-PUE length: 31 point (494.59, 425.48)
+MX-TLA, length: 1 point (492.87, 423.90)
+MX-TLA,MX-HID length: 5 point (505.62, 419.96)
+MX-TLA,MX-HID,MX-PUE length: 0
+Id: MX-VER, Name = Veracruz
+MX-VER, length: 25 point (491.95, 348.66)
+MX-VER,MX-SLP length: 0 point (493.73, 347.65)
+MX-VER, length: 295 point (491.95, 348.66)
+MX-VER,MX-SLP length: 0
+Id: MX-YUC, Name = Yucatán
+MX-YUC, length: 61 point (700.38, 390.75)
+MX-YUC,MX-CAM length: 0 point (700.45, 389.37)
+MX-YUC, length: 39
+Id: MX-ZAC, Name = Zacatecas
+MX-ZAC,MX-COA,MX-DUR length: 0 point (390.93, 274.89)
+MX-ZAC,MX-COA length: 21 point (438.87, 289.47)
+MX-ZAC,MX-COA,MX-NEL length: 0 point (438.32, 289.89)
+MX-ZAC,MX-NEL,MX-SLP length: 0 point (437.51, 290.33)
+MX-ZAC,MX-SLP length: 52 point (422.75, 362.54)
+MX-ZAC,MX-GUA,MX-SLP length: 0 point (421.94, 363.48)
+MX-ZAC,MX-GUA length: 0 point (420.97, 362.85)
+MX-ZAC,MX-GUA,MX-JAL length: 0 point (420.69, 362.46)
+MX-ZAC,MX-JAL length: 3 point (410.26, 357.31)
+MX-ZAC,MX-AGU,MX-JAL length: 0 point (409.12, 355.27)
+MX-ZAC,MX-AGU length: 14 point (390.24, 367.07)
+MX-ZAC,MX-AGU,MX-JAL length: 0 point (390.15, 369.28)
+MX-ZAC,MX-JAL length: 92 point (351.12, 351.59)
+MX-ZAC, length: 1 point (350.49, 347.86)
+MX-ZAC,MX-DUR length: 47 point (390.91, 276.52)
+MX-ZAC,MX-COA,MX-DUR length: 0
