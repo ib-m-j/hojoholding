@@ -26,6 +26,30 @@ class svgPathPoint:
 
     def __str__(self):
         return '({0:.2f}, {1:.2f}) '.format(self.location[0], self.location[1])
+
+
+#this function works on list of pathpoints - an intermediary between
+#svgpathpont and svgpath
+def findBound(element):
+    minX = 100000
+    minY = 100000
+    maxX = 0
+    maxY = 0
+
+    for p in element:
+        (x,y) = p.getTrueLocation()
+        if x < minX:
+            minX = x
+        elif x > maxX:
+            maxX = x
+        if y < minY:
+            minY = y
+        elif y > maxY:
+            maxY = y
+
+    return(minX, maxX, minY, maxY)
+
+
     
 class SvgPath:
     def __init__(self, id, name):
@@ -209,6 +233,15 @@ class SvgPath:
 
         self.paths[resLevel] = path
 
+    def removeIslands(self, level, size, resLevel):
+        path = []
+        for sP in self.paths[level]:
+            (xMin, xMax, yMin, yMax) =  findBound(sP)
+            if ((xMax - xMin) > size or (yMax - yMin) > size):
+                path.append(sP)
+
+        self.paths[resLevel] = path
+
     def dumpSvg(self, level, classMap):
         path = self.paths[level]
         locationData = ''
@@ -224,6 +257,37 @@ class SvgPath:
         onclick="showId()" class =\"{}\" d=\"{}\"/>\n'.format(
             self.id, self.name, classMap[self.id], locationData)
         return res
+
+
+    
+    def describeSvgPath(self, level):
+        path = self.paths[level]
+
+        res = 'Path id: {} title: {}\n'.format(
+            self.id, self.name)
+
+        glminX = 100000
+        glminY = 100000
+        glmaxX = 0
+        glmaxY = 0
+        
+    
+        counter = 0
+        for sP in path:
+            (minX, maxX, minY, maxY) = findBound(sP)
+            res = res + 'Element: {} Bounds: {} {} {} {}\n'.format(
+                counter, minX, maxX, minY, maxY)
+            counter += 1
+            if minX < glminX:
+                glminX = minX
+            if maxX > glmaxX:
+                glmaxX = maxX
+            if minY < glminY:
+                glminY = minY
+            if maxY > glmaxY:
+                glmaxY = maxY
+
+        return (res + '\n', glminX, glmaxX, glminY, glmaxY)
                 
 
 #----------------------------------------------------------------------

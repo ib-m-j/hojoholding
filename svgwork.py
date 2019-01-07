@@ -105,6 +105,18 @@ def reducedata():
     f.write(res)
     f.close()
 
+def removeIslands(allres):
+    counter = 0
+    res = ''
+    for path in allres.values():
+        path.removeIslands('cleaned', 10, 'islands10')
+        counter += 1
+        res = res + path.dumpSvg('islands10', regionDef)
+ 
+    f = open('svgislands.txt', 'w')
+    f.write(res)
+    f.close()
+
         
 def straightBorders(allres):
     for path in allres.values():
@@ -147,7 +159,40 @@ regionDef =\
  "MX-ZAC":"northwest"
 }
 
+def svgDescription(allres, level):
+    res = ''
+    minX = 10000
+    maxX = 0
+    minY = 10000
+    maxY = 0
+    for v in allres.values():
+        allInfo = v.describeSvgPath(level)
+        res = res + allInfo[0]
+        newBounds = allInfo[1:]
+        if newBounds[0] < minX:
+            minX = newBounds[0]
+        if newBounds[1] > maxX:
+            maxX = newBounds[1]
+        if newBounds[2] < minY:
+            minY = newBounds[2]
+        if newBounds[3] > maxY:
+            maxY = newBounds[3]
 
+    pathsDesc = open('pathsdescription.txt', 'w')
+    
+    print(res)
+    pathsDesc.write(res)
+    
+    print("Bounds: ", minX, maxX, minY, maxY)
+    pathsDesc.write("Bounds: " + '{} '.format(minX)
+                    + '{} '.format(maxX)
+                    + '{} '.format(minY)
+                    + '{} '.format(maxY) )
+    pathsDesc.close()
+
+
+
+    
     
 if __name__ == '__main__':
     allres = parsesvg.readSvgFile("mexicoHigh.svg")
@@ -156,11 +201,13 @@ if __name__ == '__main__':
     template = file.read()
     file.close()
 
-    print(svgData(allres, regionDef, 'cleaned'))
-    print(template)
-    htmlFile= open("cleanedregion.html","w")
+    removeIslands(allres)
+    svgDescription(allres, 'islands10')
+
+    #print(template)
+    htmlFile= open("cleanedregionislands.html","w")
     htmlFile.write(template.replace('@',
-        svgData(allres, regionDef, 'cleaned')))
+        svgData(allres, regionDef, 'islands10')))
     htmlFile.close()
 
     #path = allres['MX-BCN']
