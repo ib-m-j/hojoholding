@@ -117,10 +117,32 @@ def removeIslands(allres):
     f.write(res)
     f.close()
 
-        
-def straightBorders(allres):
+
+def makeRegions(allres, level, regionDefs):
+    regionNames = list(set(regionDefs.values()))
+    allRegionCoordinates = {}
+    for name in regionNames:
+        allRegionCoordinates[name] = ''
+
+    
     for path in allres.values():
-        pass
+        myRegion = regionDefs[path.id]
+        allRegionCoordinates[myRegion] += path.dumpSvg(level, regionDefs)
+
+
+    template = open('regiontemplate.html', 'r')
+    templateText = template.read()
+    template.close()
+
+
+    for region in regionNames:
+        print(region)
+        f = open(region+'.html', 'w')
+        newTemplate = templateText
+        f.write(newTemplate.replace('@', allRegionCoordinates[region]))
+        f.close()
+    
+
 
 regionDef =\
 {"MX-AGU":"central",
@@ -193,16 +215,17 @@ def svgDescription(allres, level):
 
 
     
-    
 if __name__ == '__main__':
     allres = parsesvg.readSvgFile("mexicoHigh.svg")
     #setBorders(allres, True)
-    file = open("regiontemplate.html","r")
+    file = open("mexicotemplate.html","r")
     template = file.read()
     file.close()
 
     removeIslands(allres)
-    svgDescription(allres, 'islands10')
+    
+    makeRegions(allres, 'islands10', regionDef)
+    #svgDescription(allres, 'islands10')
 
     #print(template)
     htmlFile= open("cleanedregionislands.html","w")

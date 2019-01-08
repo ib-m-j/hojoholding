@@ -243,6 +243,23 @@ class SvgPath:
         self.paths[resLevel] = path
 
     def dumpSvg(self, level, classMap):
+        #improve by using function makeLocationData below
+        path = self.paths[level]
+        locationData = self.makeLocationData(level)
+# for sP in path:
+#     locationData = locationData + '{}{:.2f},{:.2f}'.format(
+#         'M', sP[0].getTrueLocation()[0], sP[0].getTrueLocation()[1])
+#     for point in sP[1:-1]:
+#         locationData = locationData + '{}{:.2f},{:.2f}'.format(
+#         'L', point.getTrueLocation()[0], point.getTrueLocation()[1])
+#     locationData = locationData + '{}'.format('z')
+#
+        res = '<path id =\"{}\" title =\"{}\" \
+        onclick="showId()" class =\"{}\" d=\"{}\"/>\n'.format(
+            self.id, self.name, classMap[self.id], locationData)
+        return res
+
+    def makeLocationData(self, level):
         path = self.paths[level]
         locationData = ''
         for sP in path:
@@ -253,11 +270,7 @@ class SvgPath:
                 'L', point.getTrueLocation()[0], point.getTrueLocation()[1])
             locationData = locationData + '{}'.format('z')
 
-        res = '<path id =\"{}\" title =\"{}\" \
-        onclick="showId()" class =\"{}\" d=\"{}\"/>\n'.format(
-            self.id, self.name, classMap[self.id], locationData)
-        return res
-
+        return locationData
 
     
     def describeSvgPath(self, level):
