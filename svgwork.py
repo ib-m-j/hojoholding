@@ -124,11 +124,12 @@ def makeRegions(allres, level, regionDefs):
     for name in regionNames:
         allRegionCoordinates[name] = ''
 
-    
+
+    BB = parsesvg.BoundingBox()
     for path in allres.values():
         myRegion = regionDefs[path.id]
         allRegionCoordinates[myRegion] += path.dumpSvg(level, regionDefs)
-
+        print(path.describeSvgPath(level))
 
     template = open('regiontemplate.html', 'r')
     templateText = template.read()
@@ -136,12 +137,30 @@ def makeRegions(allres, level, regionDefs):
 
 
     for region in regionNames:
-        print(region)
-        f = open(region+'.html', 'w')
+        resName = 'html/' + region + '.html'
+        f = open(resName, 'w')
         newTemplate = templateText
         f.write(newTemplate.replace('@', allRegionCoordinates[region]))
         f.close()
+        print("Wrote ", resName)
+
     
+
+def makeMexico(allres, level, regionDefs):
+    BB = parsesvg.BoundingBox()
+    allCoordinates = ''
+    for path in allres.values():
+        allCoordinates  += path.dumpSvg(level, regionDefs)
+
+    file = open("mexicotemplate.html","r")
+    template = file.read()
+    file.close()
+
+    resName = 'html/allmexico.html'
+    f = open(resName, 'w')
+    f.write(template.replace('@', allCoordinates))
+    f.close()
+    print("Wrote " + resName)
 
 
 regionDef =\
@@ -218,20 +237,16 @@ def svgDescription(allres, level):
 if __name__ == '__main__':
     allres = parsesvg.readSvgFile("mexicoHigh.svg")
     #setBorders(allres, True)
-    file = open("mexicotemplate.html","r")
-    template = file.read()
-    file.close()
-
     removeIslands(allres)
-    
+    makeMexico(allres, 'islands10', regionDef)
     makeRegions(allres, 'islands10', regionDef)
     #svgDescription(allres, 'islands10')
 
     #print(template)
-    htmlFile= open("cleanedregionislands.html","w")
-    htmlFile.write(template.replace('@',
-        svgData(allres, regionDef, 'islands10')))
-    htmlFile.close()
+    #htmlFile= open("cleanedregionislands.html","w")
+    #htmlFile.write(template.replace('@',
+    #    svgData(allres, regionDef, 'islands10')))
+    #htmlFile.close()
 
     #path = allres['MX-BCN']
     #

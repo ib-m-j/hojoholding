@@ -1,32 +1,39 @@
 
-parsesvg.py,702
-class svgPathPoint:svgPathPoint7,60
-    def __init__(8,81
-    def getTrueLocation(21,507
-    def __eq__(24,571
-    def __str__(27,661
-def findBound(33,866
-class SvgPath:SvgPath54,1247
-    def __init__(55,1263
-    def addPoint(76,1918
-    def __str__(112,3210
-    def scan(123,3577
-    def overview(129,3730
-    def borderOverview(138,4048
-    def borderRaw(162,5117
-    def basicClean(173,5521
-    def setLevel(187,5958
-    def __iter__(190,6031
-    def reduce(196,6170
-        def reduceBy(198,6222
-    def removeIslands(236,7545
-    def dumpSvg(245,7848
-    def makeLocationData(262,8631
-    def describeSvgPath(276,9190
-def resolvePath(316,10359
-def readSvgFile(353,11285
+parsesvg.py,883
+class BoundingBox:BoundingBox6,58
+    def __init__(7,78
+    def includeValue(12,200
+    def xMin(20,508
+    def xMax(23,560
+    def yMin(26,612
+    def yMax(29,664
+class svgPathPoint:svgPathPoint34,724
+    def __init__(35,745
+    def getTrueLocation(48,1171
+    def __eq__(51,1235
+    def __str__(54,1325
+def findBound(60,1530
+class SvgPath:SvgPath81,1911
+    def __init__(82,1927
+    def addPoint(103,2582
+    def __str__(139,3874
+    def scan(150,4241
+    def overview(156,4394
+    def borderOverview(165,4712
+    def borderRaw(189,5781
+    def basicClean(200,6185
+    def setLevel(214,6622
+    def __iter__(217,6695
+    def reduce(223,6834
+        def reduceBy(225,6886
+    def removeIslands(263,8209
+    def dumpSvg(272,8512
+    def makeLocationData(289,9280
+    def describeSvgPath(303,9839
+def resolvePath(343,11008
+def readSvgFile(380,11934
 
-svgwork.py,275
+svgwork.py,219
 def dumpData(5,33
 def compareIter(19,396
 def setBorders(35,711
@@ -35,6 +42,4 @@ def svgData(83,2269
 def reducedata(89,2420
 def removeIslands(108,2898
 def makeRegions(121,3204
-def straightBorders(144,3860
-def svgDescription(185,4709
-def makeRegions(218,5591
+def svgDescription(184,4674

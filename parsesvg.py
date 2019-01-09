@@ -3,6 +3,42 @@ import xml.dom.minidom as dom
 import re
 
 
+class BoundingBox:
+    def __init__(self, firstValue = None):
+        self.xs = []
+        self.ys = []
+        if firstValue:
+            self.includeValue(firstValue)
+
+    def includeValue(self, newValue):
+        if isinstance(newValue, BoundingBox):
+            self.xs.extend([newValue.xMin(), newValue.xMax()])
+            self.ys.extend([newValue.yMin(), newValue.yMax()])
+        else:
+            self.xs = [newValue[0]]
+            self.ys = [newValue[1]]
+
+    def xMin(self):
+        return min(self.xs)
+
+    def xMax(self):
+        return max(self.xs)
+
+    def yMin(self):
+        return min(self.ys)
+
+    def yMax(self):
+        return max(self.ys)
+
+    def __str__(self):
+        return "Bounds xMin, xMax, yMin, yMax): {:.2f} {:.2f} {:.2f} {:.2f}".format(
+            self.xMin(), self.xMax(), self.yMin(), self.yMax())
+
+    def topLeftSizeString(self):
+        return  "{:.2f} {:.2f} {:.2f} {:.2f }".format(
+            self.xMin(), self.yMin(), self.xMax() - self.xMin(),
+            self.yMax() - self.yMin())
+        
 
 class svgPathPoint:
     def __init__(self, relativeLocation, new, last):
@@ -274,33 +310,23 @@ class SvgPath:
 
     
     def describeSvgPath(self, level):
-        path = self.paths[level]
-
-        res = 'Path id: {} title: {}\n'.format(
-            self.id, self.name)
-
-        glminX = 100000
-        glminY = 100000
-        glmaxX = 0
-        glmaxY = 0
-        
-    
+        res = ''
         counter = 0
-        for sP in path:
-            (minX, maxX, minY, maxY) = findBound(sP)
-            res = res + 'Element: {} Bounds: {} {} {} {}\n'.format(
-                counter, minX, maxX, minY, maxY)
+        bBPath = BoundingBox()
+        elements = self.paths[level]
+        for e in elements:
+            bBElement = BoundingBox()
+            for p in e:
+                bBElement.includeValue(p.getTrueLocation())
+            res = res + 'Element: {} {}\n'.format(
+                counter, bBElement)
             counter += 1
-            if minX < glminX:
-                glminX = minX
-            if maxX > glmaxX:
-                glmaxX = maxX
-            if minY < glminY:
-                glminY = minY
-            if maxY > glmaxY:
-                glmaxY = maxY
+            bBPath.includeValue(bBElement)
 
-        return (res + '\n', glminX, glmaxX, glminY, glmaxY)
+        res1 = 'Path id: {} title: {} elements: {}\n'.format(
+            self.id, self.name, counter)
+
+        return (res1 + bBPath.__str__() + "\n"  + res)
                 
 
 #----------------------------------------------------------------------
