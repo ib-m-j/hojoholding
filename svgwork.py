@@ -1,6 +1,6 @@
 import sys
 import parsesvg
-
+import string
 
 def dumpData(allres):        
     f1 = open("dumpoverview.txt",'w')
@@ -121,16 +121,22 @@ def removeIslands(allres):
 def makeRegions(allres, level, regionDefs):
     regionNames = list(set(regionDefs.values()))
     allRegionCoordinates = {}
+    allRegionBoxes = {}
     for name in regionNames:
         allRegionCoordinates[name] = ''
+        allRegionBoxes[name] = parsesvg.BoundingBox()
 
-
-    BB = parsesvg.BoundingBox()
     for path in allres.values():
         myRegion = regionDefs[path.id]
-        allRegionCoordinates[myRegion] += path.dumpSvg(level, regionDefs)
-        print(path.describeSvgPath(level))
 
+        pathDesc = '<path id =\"{}\" title =\"{}\" \
+        onclick=\"showId()\" class =\"{}\" d=\"{}\"/>\n'.format(
+            path.id, path.name,  regionDefs[path.id],
+            path.dumpSvg(level, regionDefs))
+
+        allRegionCoordinates[myRegion] += pathDesc
+        allRegionBoxes[myRegion].includeValue(path.findBound(level))
+            
     template = open('regiontemplate.html', 'r')
     templateText = template.read()
     template.close()
@@ -139,28 +145,43 @@ def makeRegions(allres, level, regionDefs):
     for region in regionNames:
         resName = 'html/' + region + '.html'
         f = open(resName, 'w')
-        newTemplate = templateText
-        f.write(newTemplate.replace('@', allRegionCoordinates[region]))
+        newTemplate = string.Template(templateText)
+        sub = dict(paths=allRegionCoordinates[region],
+                   viewBox=allRegionBoxes[region].topLeftSizeString(),
+                   title='Mexico - {}'.format(region)
+        )
+        f.write(newTemplate.substitute(sub))
         f.close()
         print("Wrote ", resName)
-
+        print("Bounds: " + allRegionBoxes[region].__str__())
+        print("also: " + allRegionBoxes[region].topLeftSizeString() + '\n')
     
 
 def makeMexico(allres, level, regionDefs):
-    BB = parsesvg.BoundingBox()
+    bB = parsesvg.BoundingBox()
     allCoordinates = ''
     for path in allres.values():
-        allCoordinates  += path.dumpSvg(level, regionDefs)
+        pathDesc = '<path id =\"{}\" title =\"{}\" \
+        onclick=\"gotoRegion(\'file:./{}.html\')\" class =\"{}\" d=\"{}\"/>\n'.format(
+            path.id, path.name,  regionDefs[path.id], regionDefs[path.id],
+            path.dumpSvg(level, regionDefs))
+
+        allCoordinates  += pathDesc
+        bB.includeValue(path.findBound( level))
 
     file = open("mexicotemplate.html","r")
-    template = file.read()
+    template = string.Template(file.read())
     file.close()
 
+    sub = dict(paths=allCoordinates, viewBox=bB.topLeftSizeString())
+    
     resName = 'html/allmexico.html'
     f = open(resName, 'w')
-    f.write(template.replace('@', allCoordinates))
+    f.write(template.substitute(sub))
     f.close()
     print("Wrote " + resName)
+    print("Bounds: " + bB.__str__())
+    print("also: " + bB.topLeftSizeString() + '\n')
 
 
 regionDef =\
@@ -232,14 +253,28 @@ def svgDescription(allres, level):
     pathsDesc.close()
 
 
-
-    
-if __name__ == '__main__':
+def makeHtmls():
     allres = parsesvg.readSvgFile("mexicoHigh.svg")
     #setBorders(allres, True)
     removeIslands(allres)
     makeMexico(allres, 'islands10', regionDef)
     makeRegions(allres, 'islands10', regionDef)
+    
+    
+if __name__ == '__main__':
+    makeHtmls()
+    #allres = parsesvg.readSvgFile("mexicoHigh.svg")
+    #removeIslands(allres)
+    #counter = 0
+    #for res in allres.values():
+    #    bb = res.findBound('islands10')
+    #
+    #    print(res.describeSvgPath('islands10'))
+    #    counter = counter + 1
+    #    if counter == 1:
+    #        break
+        
+    #setBorders(allres, True)
     #svgDescription(allres, 'islands10')
 
     #print(template)

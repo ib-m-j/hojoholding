@@ -50,19 +50,12 @@
     stroke-width:0.5;
     }
     
-    .item1 {grid-area: map;       o
-    verflow: hidden;
+    .flexcontainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
     }
-    .item2 {grid-area: text;}
-    
-    .grid-container {
-    display: grid;
-    grid:
-    'map text';
-    grid-template-columns: 50% 50%;
-    }
-    
-    
   </style>
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -73,14 +66,27 @@
     alert("I am: " + event.target.id);
     }
 
+    function gotoRegion(x) {
+    window.open(x,'_self')
+    }
+    
+
   </script>
 		
   <body>
+    <h2 align="center">
+      Mexico 
+    </h2>
 
-    <svg width="50%" height="50%" viewBox="30 55 800 560"
-       style="border: 1px solid black;">
-  @
+    <div class="flexcontainer">
+      <svg width="50%" height="80%" viewBox="$viewBox" margin="0"
+	   padding="0" style="border: 1px solid black;">
+  $paths
     </svg>
+      <div width="45%" height="300 class="item" vertical-align="top">
+	Some text
+      </div>
+    </div>
 
   </body>
 </html>

@@ -62,6 +62,13 @@
     grid-template-columns: 50% 50%;
     }
     
+    .flexcontainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    }
+    
     
   </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -75,11 +82,23 @@ alert("I am: " + event.target.id);
 </script>
 		
 <body>
+<body>
+    <h2 align="center">
+      $title
+    </h2>
 
-  <svg width="50%" height="50%" viewBox="30 55 800 560"
+    <div class="flexcontainer">
+
+  <svg width="50%" height="50%" viewBox="$viewBox"
        style="border: 1px solid black;">
-  @
+
+  $paths
   </svg>
+      <div width="45%" height="300 class="item" vertical-align="top">
+	Some text about Mexico $title
+      </div>
+    </div>
+
 
 </body>
 </html>

@@ -15,9 +15,10 @@ class BoundingBox:
             self.xs.extend([newValue.xMin(), newValue.xMax()])
             self.ys.extend([newValue.yMin(), newValue.yMax()])
         else:
-            self.xs = [newValue[0]]
-            self.ys = [newValue[1]]
-
+            self.xs.append(newValue[0])
+            self.ys.append(newValue[1])
+            
+            
     def xMin(self):
         return min(self.xs)
 
@@ -31,11 +32,11 @@ class BoundingBox:
         return max(self.ys)
 
     def __str__(self):
-        return "Bounds xMin, xMax, yMin, yMax): {:.2f} {:.2f} {:.2f} {:.2f}".format(
+        return "Bounds (xMin, xMax, yMin, yMax): {:.2f} {:.2f} {:.2f} {:.2f}".format(
             self.xMin(), self.xMax(), self.yMin(), self.yMax())
 
     def topLeftSizeString(self):
-        return  "{:.2f} {:.2f} {:.2f} {:.2f }".format(
+        return  "{:.2f} {:.2f} {:.2f} {:.2f}".format(
             self.xMin(), self.yMin(), self.xMax() - self.xMin(),
             self.yMax() - self.yMin())
         
@@ -66,7 +67,7 @@ class svgPathPoint:
 
 #this function works on list of pathpoints - an intermediary between
 #svgpathpont and svgpath
-def findBound(element):
+def findElementBound(element):
     minX = 100000
     minY = 100000
     maxX = 0
@@ -272,7 +273,7 @@ class SvgPath:
     def removeIslands(self, level, size, resLevel):
         path = []
         for sP in self.paths[level]:
-            (xMin, xMax, yMin, yMax) =  findBound(sP)
+            (xMin, xMax, yMin, yMax) =  findElementBound(sP)
             if ((xMax - xMin) > size or (yMax - yMin) > size):
                 path.append(sP)
 
@@ -282,6 +283,7 @@ class SvgPath:
         #improve by using function makeLocationData below
         path = self.paths[level]
         locationData = self.makeLocationData(level)
+        return locationData
 # for sP in path:
 #     locationData = locationData + '{}{:.2f},{:.2f}'.format(
 #         'M', sP[0].getTrueLocation()[0], sP[0].getTrueLocation()[1])
@@ -290,10 +292,10 @@ class SvgPath:
 #         'L', point.getTrueLocation()[0], point.getTrueLocation()[1])
 #     locationData = locationData + '{}'.format('z')
 #
-        res = '<path id =\"{}\" title =\"{}\" \
-        onclick="showId()" class =\"{}\" d=\"{}\"/>\n'.format(
-            self.id, self.name, classMap[self.id], locationData)
-        return res
+#        res = '<path id =\"{}\" title =\"{}\" \
+#        onclick="showId()" class =\"{}\" d=\"{}\"/>\n'.format(
+#            self.id, self.name, classMap[self.id], locationData)
+#        return res
 
     def makeLocationData(self, level):
         path = self.paths[level]
@@ -308,6 +310,16 @@ class SvgPath:
 
         return locationData
 
+
+    def findBound(self, level):
+        elements = self.paths[level]
+        bB = BoundingBox()
+        for e in elements:
+            for p in e:
+                bB.includeValue(p.getTrueLocation())
+
+        return bB
+        
     
     def describeSvgPath(self, level):
         res = ''
