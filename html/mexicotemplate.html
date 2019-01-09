@@ -1,0 +1,86 @@
+<html>
+  <style type="text/css">
+    .central
+    {
+    fill: lightblue;
+    fill-opacity: 1;
+    stroke:blue;
+    stroke-opacity: 1;
+    stroke-width:0.5;
+    }
+    .northwest
+    {
+    fill: lightgreen;
+    fill-opacity: 1;
+    stroke:green;
+    stroke-opacity: 1;
+    stroke-width:0.5;
+    }
+    .northeast
+    {
+    fill: yellow;
+    fill-opacity: 1;
+    stroke:yellow;
+    stroke-opacity: 1;
+    stroke-width:0.5;
+    }
+    .south
+    {
+    fill: purple;
+    fill-opacity: 1;
+    stroke:purple;
+    stroke-opacity: 1;
+    stroke-width:0.5;
+    }
+    .east
+    {
+    fill: red;
+    fill-opacity: 1;
+    stroke:red;
+    stroke-opacity: 1;
+    stroke-width:0.5;
+    }
+    
+    .southeast
+    {
+    fill: red;
+    fill-opacity: 1;
+    stroke:red;
+    stroke-opacity: 1;
+    stroke-width:0.5;
+    }
+    
+    .item1 {grid-area: map;       o
+    verflow: hidden;
+    }
+    .item2 {grid-area: text;}
+    
+    .grid-container {
+    display: grid;
+    grid:
+    'map text';
+    grid-template-columns: 50% 50%;
+    }
+    
+    
+  </style>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <script type="text/JavaScript">
+    
+    function showId() {
+    alert("I am: " + event.target.id);
+    }
+
+  </script>
+		
+  <body>
+
+    <svg width="50%" height="50%" viewBox="30 55 800 560"
+       style="border: 1px solid black;">
+  @
+    </svg>
+
+  </body>
+</html>
