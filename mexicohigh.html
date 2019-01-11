@@ -29,15 +29,19 @@
     $("#displayid").html(event.target.id);
     $("#statename").val(event.target.getAttribute("title"));
     $("#stateid").val(event.target.id);
+    $("#"+event.target.id).css("stroke","black");
+    $("#"+event.target.id).css("stroke-width","2px");
       }
 
     function deleteId() {
-    $("#displayid").html("");
-    $("#statename").val("");
-    $("#stateid").val("");
+    $("#displayid").html("empty");
+    $("#statename").val("empty");
+    $("#stateid").val("state");
 //    document.getElementById("stateid").value="";
 //    document.getElementById("statename").value="";
 //    document.getElementById("displayid").innerHTML = "";
+    $("#"+event.target.id).css("stroke","white");
+    $("#"+event.target.id).css("stroke-width","0.5px");
     }
 
     
@@ -57,7 +61,8 @@
 
     
     $("path").click(function(){
-    alert("I am: " + event.target.id);
+    $("#"+event.target.id).css("stroke","black");
+    $("#"+event.target.id).css("stroke-width","2px");
     });
     
 
@@ -106,7 +111,7 @@
 <p id="displayid">empty</p>
   State Id: <input  id="stateid" type="text" value="state" width="50" height="30" horizontal-align="left"/>
 <textarea id="statename"width="75" height="100" >
-jjjj
+empty
 </textarea>
 </div>
 </div>
