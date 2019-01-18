@@ -4,50 +4,50 @@
     {
     fill: lightblue;
     fill-opacity: 1;
-    stroke:blue;
-    stroke-opacity: 1;
-    stroke-width:0.5;
+    stroke:lightblue;
+    stroke-opacity: 0;
+    stroke-width:2.5;
     }
     .northwest
     {
     fill: lightgreen;
     fill-opacity: 1;
-    stroke:green;
-    stroke-opacity: 1;
-    stroke-width:0.5;
+    stroke:lightgreen;
+    stroke-opacity: 0;
+    stroke-width:2.5;
     }
     .northeast
     {
-    fill: yellow;
+    fill: brown;
     fill-opacity: 1;
     stroke:yellow;
-    stroke-opacity: 1;
-    stroke-width:0.5;
+    stroke-opacity: 0;
+    stroke-width:2.5;
     }
     .south
     {
     fill: purple;
     fill-opacity: 1;
     stroke:purple;
-    stroke-opacity: 1;
-    stroke-width:0.5;
+    stroke-opacity: 0;
+    stroke-width:2.5;
     }
     .east
     {
     fill: red;
     fill-opacity: 1;
     stroke:red;
-    stroke-opacity: 1;
-    stroke-width:0.5;
+    stroke-opacity: 0;
+    stroke-width:2.5;
     }
     
     .southeast
     {
-    fill: red;
+    fill: lightred;
     fill-opacity: 1;
-    stroke:red;
-    stroke-opacity: 1;
-    stroke-width:0.5;
+    stroke:lightred;
+    stroke-opacity: 0;
+    stroke-width:2.5;
     }
     
     .flexcontainer {
@@ -58,6 +58,7 @@
     }
   </style>
   
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
   <script type="text/JavaScript">
@@ -66,22 +67,47 @@
     alert("I am: " + event.target.id);
     }
 
-    function gotoRegion(x) {
-    window.open(x,'_self')
+    function focusRegion() {
+    var targetClass = event.target.getAttribute("class");
+    console.log(targetClass);
+    $("."+targetClass).css("stroke-opacity", "1");
+    $("."+targetClass).css("stroke", "white");
     }
     
+    function defocusRegion() {
+    var targetClass = event.target.getAttribute("class");
+    console.log(targetClass);
+    $("."+targetClass).css("stroke-opacity", "0");
+    }
 
+    function gotoRegion(x) {
+    window.open('file:./' + $('#'+event.target.id).attr('class') + '.html', '_self')
+    }
+
+    $(document).ready(function(){
+    $("path").mouseenter(function(){
+    focusRegion();
+    });
+    
+    $("path").mouseleave(function(){
+    defocusRegion();
+    });
+    
+    $("path").click(function(){
+    gotoRegion();
+    });
+
+    })
   </script>
-		
   <body>
     <h2 align="center">
       Mexico 
     </h2>
 
     <div class="flexcontainer">
-      <svg width="50%" height="80%" viewBox="$viewBox" margin="0"
+      <svg width="50%" height="80%" viewBox="$@viewBox" margin="0"
 	   padding="0" style="border: 1px solid black;">
-  $paths
+  $@paths
     </svg>
       <div width="45%" height="300 class="item" vertical-align="top">
 	Some text

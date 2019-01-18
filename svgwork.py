@@ -2,6 +2,10 @@ import sys
 import parsesvg
 import string
 
+
+class MyTemplate(string.Template):
+    delimiter = "$@"
+        
 def dumpData(allres):        
     f1 = open("dumpoverview.txt",'w')
     f2 = open('dumpcleaned.txt','w')
@@ -69,7 +73,7 @@ def dumpSvgData(allres, classMap, level, number, filename):
 
     #below writes ids in not quite useful location
     #f=open('idtexts.txt', 'w')
-    #for path in allres.values():
+1    #for path in allres.values():
     #    x = path.elements[0][0].getTrueLocation()[0]
     #    y =  path.elements[0][0].getTrueLocation()[1]
     #    f.write('<text class="idname" x={} y={}>{}</text>\n' .
@@ -130,7 +134,7 @@ def makeRegions(allres, level, regionDefs):
         myRegion = regionDefs[path.id]
 
         pathDesc = '<path id =\"{}\" title =\"{}\" \
-        onclick=\"showId()\" class =\"{}\" d=\"{}\"/>\n'.format(
+        class =\"{}\" d=\"{}\"/>\n'.format(
             path.id, path.name,  regionDefs[path.id],
             path.dumpSvg(level, regionDefs))
 
@@ -145,7 +149,7 @@ def makeRegions(allres, level, regionDefs):
     for region in regionNames:
         resName = 'html/' + region + '.html'
         f = open(resName, 'w')
-        newTemplate = string.Template(templateText)
+        newTemplate = MyTemplate(templateText)
         sub = dict(paths=allRegionCoordinates[region],
                    viewBox=allRegionBoxes[region].topLeftSizeString(),
                    title='Mexico - {}'.format(region)
@@ -161,23 +165,23 @@ def makeMexico(allres, level, regionDefs):
     bB = parsesvg.BoundingBox()
     allCoordinates = ''
     for path in allres.values():
-        pathDesc = '<path id =\"{}\" title =\"{}\" \
-        onclick=\"gotoRegion(\'file:./{}.html\')\" class =\"{}\" d=\"{}\"/>\n'.format(
-            path.id, path.name,  regionDefs[path.id], regionDefs[path.id],
+        pathDesc = '<path id =\"{}\" title =\"{}\" class =\"{}\" d=\"{}\"/>\n'.format(
+            path.id, path.name, regionDefs[path.id],
             path.dumpSvg(level, regionDefs))
 
         allCoordinates  += pathDesc
         bB.includeValue(path.findBound( level))
 
     file = open("mexicotemplate.html","r")
-    template = string.Template(file.read())
+    templateText = MyTemplate(file.read())
     file.close()
 
+    print(templateText.delimiter)
     sub = dict(paths=allCoordinates, viewBox=bB.topLeftSizeString())
     
     resName = 'html/allmexico.html'
     f = open(resName, 'w')
-    f.write(template.substitute(sub))
+    f.write(templateText.substitute(sub))
     f.close()
     print("Wrote " + resName)
     print("Bounds: " + bB.__str__())
