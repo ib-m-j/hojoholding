@@ -2,7 +2,7 @@ import sys
 import parsesvg
 import string
 
-
+#random commemnt for ssh testing
 class MyTemplate(string.Template):
     delimiter = "$@"
         
