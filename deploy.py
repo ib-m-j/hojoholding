@@ -15,7 +15,8 @@ toDeploy = [
     ("html/east.html",None,None),
     ("html/south.html",None,None),
     ("../html/mexicohigh.html",None,None),
-    ("../html/zoom.html",None,None)
+    ("../html/zoom.html",None,None),
+    ("../html/mexicocity.html",None,None)
     ]
 
 target = "../../Google\ Drive/hojoholding/html"
